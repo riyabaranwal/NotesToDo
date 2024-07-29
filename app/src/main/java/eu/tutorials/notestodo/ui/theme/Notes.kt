@@ -29,15 +29,20 @@ import androidx.compose.ui.unit.dp
 
 
 @Composable
-fun FrontPage(){
+fun FrontPage() {
     val text1 = remember { TextFieldValue("Make Notes") }
     val text2 = remember { TextFieldValue("Make ToDoList") }
     val text3 = remember { TextFieldValue("Make Routine") }
-    Column(modifier = Modifier.fillMaxSize().padding(16.dp),
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Top) {
+        verticalArrangement = Arrangement.Top
+    ) {
 //        Spacer(modifier = Modifier.weight(0.2f))
-        Text(text = "NotesToDo",
+        Text(
+            text = "NotesToDo",
             color = Color.White,
             fontWeight = FontWeight.Bold,
             fontStyle = FontStyle.Normal,
@@ -45,41 +50,50 @@ fun FrontPage(){
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
         Spacer(modifier = Modifier.height(50.dp))
-        OutlinedTextField(value = text1 ,
+        OutlinedTextField(
+            value = text1,
             onValueChange = {},
             readOnly = true,
             modifier = Modifier
                 .fillMaxWidth()
                 .background(color = Color.Red)
-                .padding(4.dp).border(border = BorderStroke(2.dp, Color.Red),
-                    shape = RoundedCornerShape(20)),
+                .padding(4.dp)
+                .border(
+                    border = BorderStroke(2.dp, Color.Red),
+                    shape = RoundedCornerShape(20)
+                ),
             textStyle = TextStyle(color = Color.White)
         )
         Spacer(modifier = Modifier.height(16.dp))
-        OutlinedTextField(value = text2 ,
+        OutlinedTextField(
+            value = text2,
             onValueChange = {},
             readOnly = true,
             modifier = Modifier
                 .fillMaxWidth()
                 .background(color = Color(0xFF512DA8))
-                .padding(4.dp).border(border = BorderStroke(2.dp, Color(0xFF512DA8)),
-                    shape = RoundedCornerShape(20)),
-            textStyle = TextStyle(color = Color.White))
+                .padding(4.dp)
+                .border(
+                    border = BorderStroke(2.dp, Color(0xFF512DA8)),
+                    shape = RoundedCornerShape(20)
+                ),
+            textStyle = TextStyle(color = Color.White)
+        )
         Spacer(modifier = Modifier.height(16.dp))
-        OutlinedTextField(value = text3 ,
+        OutlinedTextField(
+            value = text3,
             onValueChange = {},
             readOnly = true,
             modifier = Modifier
                 .fillMaxWidth()
                 .background(color = Color(0xFFFF9800))
-                .padding(4.dp).border(border = BorderStroke(2.dp, Color(0xFFFF9800)),
-                    shape = RoundedCornerShape(20)),
-            textStyle = TextStyle(color = Color.White))
-
-//uhuehdieuhewfiue
-        //edjpewkdpwokedo
+                .padding(4.dp)
+                .border(
+                    border = BorderStroke(2.dp, Color(0xFFFF9800)),
+                    shape = RoundedCornerShape(20)
+                ),
+            textStyle = TextStyle(color = Color.White)
+        )
     }
-
-
-    }
+}
 
