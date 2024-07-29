@@ -75,7 +75,8 @@ fun FrontPage(){
                 .padding(4.dp).border(border = BorderStroke(2.dp, Color(0xFFFF9800)),
                     shape = RoundedCornerShape(20)),
             textStyle = TextStyle(color = Color.White))
-//?H/ekkdenieujehhiojdo
+
+
     }
 
 
