@@ -76,7 +76,8 @@ fun FrontPage(){
                     shape = RoundedCornerShape(20)),
             textStyle = TextStyle(color = Color.White))
 
-
+//uhuehdieuhewfiue
+        //edjpewkdpwokedo
     }
 
 
