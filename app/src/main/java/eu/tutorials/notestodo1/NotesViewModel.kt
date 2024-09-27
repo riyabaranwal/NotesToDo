@@ -10,7 +10,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
-
 class NotesViewModel(
     private val notesRepository: NotesRepository = Graph.notesRepository
 ): ViewModel() {
