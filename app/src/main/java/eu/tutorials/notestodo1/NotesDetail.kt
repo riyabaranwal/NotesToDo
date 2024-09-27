@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -26,15 +27,17 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import kotlinx.coroutines.launch
 
 @Composable
 fun NotesDetail(
     navController: NavController,
-    noteId: Long,
+    noteId: Int,
     viewModel: NotesViewModel,
 ) {
     val snackMessage = remember { mutableStateOf("") }
     val scope = rememberCoroutineScope()
+    val scffoldState = rememberScaffoldState()
 
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
@@ -61,14 +64,37 @@ fun NotesDetail(
 
                 value = viewModel.notesContentState,
                 onValueChange = {viewModel.onContentChange(it)})
-            Spacer(modifier = Modifier.height(10.dp))
-            Button(onClick = { } {
-                if (viewModel.notesTitleState.isNotEmpty() && viewModel.notesContentState.isNotEmpty()) {}
-                else {
-
-                })
-            }
     }
+        Spacer(modifier = Modifier.height(10.dp))
+        Button(onClick = {
+            if(viewModel.notesTitleState.isNotBlank() && viewModel.notesContentState.isNotBlank()){
+                if (noteId.toLong() != 0L){
+                    //  update note
+                }
+                else{
+                    // add note
+                    viewModel.addANote(
+                        NoteItem(
+                            id = noteId,
+                            title = viewModel.notesTitleState.trim(),
+                            noteNo = viewModel.notesContentState.trim().toInt(),
+                            Content = viewModel.notesContentState.trim(),
+                        )
+                    )
+                    snackMessage.value = "Note Added"
+                }
+            }
+            else{
+                snackMessage.value = "Enter notes"
+            }
+            scope.launch {
+                //scffoldState.snackbarHostState.showSnackbar(snackMessage.value)
+               // snackMessage.value
+               // navController.navigateUp()
+            }
+        }) {
+
+        }
 }
 }
 @Composable

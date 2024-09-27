@@ -28,7 +28,6 @@ fun SetupNavGraph(modifier: Modifier = Modifier, viewModel: NotesViewModel = vie
             NotesScreen(modifier = modifier , navController = navController, viewModel = viewModel)
         }
 //        composable(route = Screen.Third.route){
-//
 //            NotesDetail(navController = navController, noteId =0L, viewModel = viewModel)
 //        }
         composable(
@@ -40,7 +39,7 @@ fun SetupNavGraph(modifier: Modifier = Modifier, viewModel: NotesViewModel = vie
         { backStackEntry ->
             val noteId = backStackEntry.arguments?.getInt("noteId") ?: -1
 
-                NotesDetail(navController = navController, noteId = noteId.toLong(), viewModel = viewModel)
+                NotesDetail(navController = navController, noteId = noteId, viewModel = viewModel)
 
         }
     }

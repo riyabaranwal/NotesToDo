@@ -1,4 +1,4 @@
-package eu.tutorials.notestodo1
+package eu.tutorials.notestodo1.Graphh
 
 import android.content.Context
 import androidx.room.Room
